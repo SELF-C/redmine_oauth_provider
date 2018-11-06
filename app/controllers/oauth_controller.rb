@@ -22,6 +22,7 @@ class OauthController < ApplicationController
       hash.delete(:hashed_password)
       hash.delete(:salt)
       hash.merge!(:mail => user.mail)
+      hash.merge!(:api_key => user.api_key)
       user_hash = { :user => hash }
     end
     respond_to do |format|
